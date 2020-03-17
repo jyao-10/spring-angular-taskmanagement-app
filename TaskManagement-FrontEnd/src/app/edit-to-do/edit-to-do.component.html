@@ -1,0 +1,47 @@
+<div class="container">
+  
+  <form [formGroup]="form" (ngSubmit)="updateTodo(description.value, status.value, priority.value, dueDate.value, dueTime.value)" novalidate>
+    <div class="form-group">
+      <label>Update ToDo Description</label>
+      <textarea class="form-control" rows="3" formControlName="description" #description [(ngModel)] = "todo.description"></textarea>
+    </div>
+
+    <div class="form-group">
+     <label>Update Status</label>
+      <select class="form-control" formControlName="status" #status [(ngModel)]="todo.status">
+          <option disabled>Select status</option>
+          <option>PENDING</option>
+          <option>COMPLETE</option>
+          <option>PAST DUE</option>
+          <option>IGNORED</option>
+          <option>FAILED</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+     <label>Update Priority</label>
+      <select class="form-control" formControlName="priority" #priority [(ngModel)]="todo.priority">
+        <option disabled>Select priority</option>
+        <option>URGENT</option>
+        <option>IMPORTANT</option>
+        <option>NORMAL</option>
+        <option>OPTIONAL</option>
+      </select>
+    </div>
+ 
+    <div class="form-group">
+     <label>Update Due Date</label>
+     <input  type="text" class="form-control" formControlName="dueDate" placeholder="MM/DD/YYYY" #dueDate [(ngModel)]="todo.dueDate"/>
+    </div>
+
+    <div class="form-group">
+      <label>Update Due Time</label>
+      <input  type="text" class="form-control" formControlName="dueTime" placeholder="HH:MM" #dueTime [(ngModel)]="todo.dueTime"/>
+     </div>
+
+    <div class="form-group">
+       <button type="submit" class="btn btn-primary">Update ToDo</button>
+    </div>
+
+    </form>
+</div>

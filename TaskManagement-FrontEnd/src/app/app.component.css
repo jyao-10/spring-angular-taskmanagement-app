@@ -1,0 +1,55 @@
+@import "https://www.dallascounty.org/web_resources/cm/themes/smoothness/jquery-ui-1.8.9.custom.css";
+@import "https://www.dallascounty.org/web_resources/themes/www-dallascounty-org/css/dcAlert.css";
+@import "https://www.dallascounty.org/web_resources/themes/dallas-county-new/dallas-county-overrides.css";
+@import "https://www.dallascounty.org/web_resources/themes/dallas-county-new/perc/perc_region.css";
+
+.img-center-resp#editable-page-title img { 
+  display: block;
+  max-width: 100%;
+  height: auto; 
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+div#slide_area {
+background-image: url(https://www.dallascounty.org/web_resources/themes/www-dallascounty-org/images/webimages/happy-girl-showing-thumbs-up-over-winter.jpg);
+background-color: #fff;
+background-repeat: no-repeat;
+height:400px;
+ background-size: cover;
+background-position-x: center;
+
+}
+
+div#auditor_slide_area {
+background-image: url(https://www.dallascounty.org/web_resources/themes/www-dallascounty-org/images/webimages/auditor-slide.jpg);
+background-color: #fff;
+background-repeat: no-repeat;
+height:400px;
+ background-size: cover;
+background-position-x: center;
+}
+
+
+
+div#facilities_slide_area {
+background-image: url(https://www.dallascounty.org/web_resources/themes/www-dallascounty-org/images/webimages/facilities.jpg);
+background-color: #efefef;
+background-repeat: no-repeat;
+height:400px;
+ background-size: cover;
+background-position-x: center;
+}
+
+div#fire_slide_area {
+background-image: url();
+background-color: #efefef;
+background-repeat: no-repeat;
+height:auto;
+margin-top: 1px;
+margin-bottom: 0px;
+ background-size: cover;
+background-position-x: center;
+}

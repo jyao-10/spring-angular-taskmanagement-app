@@ -1,0 +1,80 @@
+
+<div class="container">
+  <button (click)="changeUser(1)" class="btn btn-primary btn-sm m-2" >Judge</button>
+  <button (click)="changeUser(2)" class="btn btn-primary btn-sm m-2">Clerk</button>
+  <button (click)="changeUser(3)" class="btn btn-primary btn-sm m-2">Admin</button>
+  <form [formGroup]="form" (ngSubmit)="onSubmit(description.value, status.value, priority.value, dueDate.value, dueTime.value)">
+    <div class="form-group">
+      <label>ToDo Description</label>
+      <textarea class="form-control" rows="3" formControlName="description" #description></textarea>
+    </div>
+
+    <div *ngIf="form.controls['description'].invalid && (form.controls['description'].dirty || form.controls['description'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['description'].errors.required">
+        To-Do description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+     <label>Status</label>
+      <select class="form-control" formControlName="status" #status>
+        <option disabled>Select status</option>
+        <option>PENDING</option>
+        <option>COMPLETE</option>
+        <option>PAST DUE</option>
+        <option>IGNORED</option>
+        <option>FAILED</option>
+      </select>
+    </div>
+
+    <div *ngIf="form.controls['status'].invalid && (form.controls['status'].dirty || form.controls['status'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['status'].errors.required">
+        To-Do status is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+     <label>Priority</label>
+      <select class="form-control" formControlName="priority" #priority>
+        <option disabled>Select priority</option>
+        <option>URGENT</option>
+        <option>IMPORTANT</option>
+        <option>NORMAL</option>
+        <option>OPTIONAL</option>
+      </select>
+    </div>
+
+    <div *ngIf="form.controls['priority'].invalid && (form.controls['priority'].dirty || form.controls['priority'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['priority'].errors.required">
+        To-Do priority is required.
+      </div>
+    </div>
+ 
+    <div class="form-group">
+     <label>Due Date</label>
+     <input  type="text" class="form-control" formControlName="dueDate" placeholder="YYYY-MM-DD" #dueDate/>
+    </div>
+
+    <div *ngIf="form.controls['dueDate'].invalid && (form.controls['dueDate'].dirty || form.controls['dueDate'].touched)" class="alert alert-danger">
+      <div *ngIf="form.controls['dueDate'].errors.required">
+        To-Do deadline is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Due Time</label>
+      <input  type="text" class="form-control" formControlName="dueTime" placeholder="HH:MM:SS" #dueTime/>
+     </div>
+ 
+     <div *ngIf="form.controls['dueTime'].invalid && (form.controls['dueTime'].dirty || form.controls['dueTime'].touched)" class="alert alert-danger">
+       <div *ngIf="form.controls['dueTime'].errors.required">
+         To-Do deadline is required.
+       </div>
+     </div>
+
+    <div class="form-group">
+       <button type="submit" class="btn btn-primary" [disabled]="form.pristine || form.invalid">Add ToDo</button>
+    </div>
+
+    </form>
+</div>

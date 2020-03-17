@@ -1,0 +1,40 @@
+ <div class="container">
+    <div>
+        <button (click)="changeUser(1)" class="btn btn-primary btn-sm m-2" >County Judge</button>
+        <button (click)="changeUser(3)" class="btn btn-primary btn-sm m-2">District Clerk</button>
+        <button (click)="changeUser(2)" class="btn btn-primary btn-sm m-2">County Administrator</button>
+        
+    <button (click)="populateTodos()" class="btn btn-primary btn-sm" style="float: right;">Populate Daily Tasks</button>
+    </div>
+    <div class="table">
+    <table class="table table-striped table-responsive-md table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th style="max-width:300px">ToDo Description</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Due Date</th>
+                <th>Due Time</th>
+                <th colspan="2" style="text-align:center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todos">
+                <td style="max-width:300px">{{ todo.description }}</td>
+                <td>{{ todo.status }}</td>
+                <td [ngClass]="{
+                    'IMPORTANT':todo.priority === 'IMPORTANT',
+                    'OPTIONAL':todo.priority === 'OPTIONAL',
+                    'URGENT':todo.priority === 'URGENT',
+                    'NORMAL':todo.priority === 'NORMAL'
+                  }">{{ todo.priority }}
+                  </td>
+                <td>{{ todo.dueDate }}</td>
+                <td>{{ todo.dueTime }} </td>
+                <td><a [routerLink]="['/todos/edit', todo.id]" class="btn btn-primary">Edit</a></td>
+                <td><a (click) = "deleteTodo(todo.id)" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
